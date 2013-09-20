@@ -49,7 +49,7 @@ Blank lines and lines beginning with a `#` are ignored.
 
 (The MIT License)
 
-Copyright (c) 2013 Sam Stephenson and Tom Scott
+Copyright (c) 2013 [Sam Stephenson][sstephenson] and [Tom Scott][tubbo]
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -76,3 +76,4 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [sstephenson]: https://github.com/sstephenson
 [sstephenson/rbenv]: https://github.com/sstephenson/rbenv
 [sstephenson/rbenv-default-gems]: https://github.com/sstephenson/rbenv-default-gems
+[tubbo]: http://github.com/tubbo
