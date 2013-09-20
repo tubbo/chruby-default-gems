@@ -1,14 +1,17 @@
-if declare -Ff after_install >/dev/null; then
-  after_install install_default_gems
-else
-  echo "rbenv: rbenv-default-gems plugin requires ruby-build 20130129 or later" >&2
-fi
+DEFAULT_GEMFILE="$HOME/post-install.d/$RUBY/default-gems"
 
+# Override this ruby-install hook, but run default post-install
+# hooks for this Ruby prior to our override.
+post_install() {
+  post_install && install_default_gems
+}
+
+# Install default gems a la rbenv!
 install_default_gems() {
   # Only install default gems after successfully installing Ruby.
   [ "$STATUS" = "0" ] || return 0
 
-  if [ -f "${RBENV_ROOT}/default-gems" ]; then
+  if [ -f $DEFAULT_GEMFILE ]; then
     local line gem_name gem_version args
 
     # Read gem names and versions from $RBENV_ROOT/default-gems.
@@ -23,6 +26,7 @@ install_default_gems() {
       gem_name="${line[0]}"
       gem_version="${line[1]}"
 
+      # Build command arguments
       if [ "$gem_version" == "--pre" ]; then
         args=( --pre )
       elif [ -n "$gem_version" ]; then
@@ -34,10 +38,10 @@ install_default_gems() {
       # Invoke `gem install` in the just-installed Ruby. Point its
       # stdin to /dev/null or else it'll read from our default-gems
       # file.
-      RBENV_VERSION="$VERSION_NAME" rbenv-exec gem install "$gem_name" "${args[@]}" < /dev/null || {
+      chruby-exec $RUBY_VERSION -- gem install "$gem_name" "${args[@]}" < /dev/null || {
         echo "rbenv: error installing gem \`$gem_name'"
       } >&2
 
-    done < "${RBENV_ROOT}/default-gems"
+    done < $DEFAULT_GEMFILE
   fi
 }
