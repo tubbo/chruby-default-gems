@@ -1,5 +1,3 @@
-DEFAULT_GEMFILE="$HOME/post-install.d/$RUBY/default-gems"
-
 # Override this ruby-install hook, but run default post-install
 # hooks for this Ruby prior to our override.
 post_install() {
@@ -8,6 +6,8 @@ post_install() {
 
 # Install default gems a la rbenv!
 install_default_gems() {
+  DEFAULT_GEMFILE="$HOME/post-install.d/$RUBY/default-gems"
+
   # Only install default gems after successfully installing Ruby.
   [ "$STATUS" = "0" ] || return 0
 
