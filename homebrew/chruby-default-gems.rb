@@ -8,14 +8,6 @@ class ChrubyDefaultGems < Formula
 
   head 'https://github.com/tubbo/chruby-default-gems.git'
 
-  def install
-    %w(ruby jruby rubinius).each do |rb|
-      system "mkdir -p ~/.post-install.d/#{rb}"
-      system "touch ~/.post-install.d/#{rb}/default-gems"
-    end
-    system 'mkdir -p ~/.post-install.d/ruby ~/.post-install.d/jruby ~/.post-install.d/rubinius'
-  end
-
   def caveats
     %(
       Installation:
