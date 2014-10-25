@@ -4,6 +4,7 @@ class ChrubyDefaultGems < Formula
   homepage 'https://github.com/tubbo/chruby-default-gems#readme'
   url 'https://github.com/tubbo/chruby-default-gems/archive/master.zip'
   sha1 '5e3044119248f3150d5faf3bbbf7bf48adfb2177'
+  version '0.0.1'
 
   head 'https://github.com/tubbo/chruby-default-gems.git'
 
