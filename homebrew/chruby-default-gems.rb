@@ -3,7 +3,7 @@ require 'formula'
 class ChrubyDefaultGems < Formula
   homepage 'https://github.com/tubbo/chruby-default-gems#readme'
   url 'https://github.com/tubbo/chruby-default-gems/archive/master.zip'
-  sha1 '5e3044119248f3150d5faf3bbbf7bf48adfb2177'
+  sha1 '9abfb6f906825229b7519f3a99fa749e6939f660'
   version '0.0.1'
 
   head 'https://github.com/tubbo/chruby-default-gems.git'
