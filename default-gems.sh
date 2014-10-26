@@ -7,6 +7,8 @@ post_install() {
 # Install default gems a la rbenv!
 install_default_gems() {
   eval DEFAULT_GEMFILE="${DEFAULT_GEMFILE-'$HOME/.default-$RUBY-gems'}"
+  echo DEFAULT_GEMFILE="$DEFAULT_GEMFILE"
+  exit
 
   # Only install default gems after successfully installing Ruby.
   [ "$STATUS" = "0" ] || return 0
