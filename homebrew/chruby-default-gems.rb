@@ -9,7 +9,7 @@ class ChrubyDefaultGems < Formula
   head 'https://github.com/tubbo/chruby-default-gems.git'
 
   def install
-    FileUtils.cp "lib/chruby/default_gems.sh", "#{prefix}/default_gems.sh"
+    FileUtils.cp "default-gems.sh", "#{prefix}/default-gems.sh"
   end
 
   def caveats
@@ -18,7 +18,7 @@ class ChrubyDefaultGems < Formula
 
       Copy the following line into your .bash_profile or .zshenv:
 
-        source #{prefix}/default_gems.sh
+        source #{prefix}/default-gems.sh
 
       You can also set the DEFAULT_GEMFILE variable if you wish to store
       your default-gems in a location other than

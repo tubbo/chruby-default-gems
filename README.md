@@ -17,7 +17,7 @@ Make sure you have the latest chruby and ruby-install, then run:
 
 Next, add the following to your shell configuration:
 
-    source ~/.chruby-default-gems/lib/chruby/default_gems.sh
+    source ~/.chruby-default-gems/lib/chruby/default-gems.sh
 
 If you're on OS X, you can just run:
 
