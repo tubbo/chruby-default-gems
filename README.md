@@ -20,7 +20,7 @@ Next, add the following to your shell configuration:
 
 If you're on OS X, you can just run:
 
-    brew install https://raw.github.com/bronson/chruby-default-gems/master/homebrew/chruby-default-gems.rb
+    brew install https://raw.github.com/bronson/chruby-default-gems/master/homebrew/chruby-default-gems.rb --HEAD
 
 This will install the script and show you instructions for how to apply
 it to your shell.
@@ -40,7 +40,7 @@ this is probably what's happeneing.
 
 ## Updating Gems
 
-If you change your default gemfile, run `install-default-gems` to
+If you change your default gemfile, run `update-default-gems` to
 reinstall each listed gem into the current Ruby.
 It does not remove gems.
 
