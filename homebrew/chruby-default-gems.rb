@@ -21,9 +21,8 @@ class ChrubyDefaultGems < Formula
         source #{prefix}/default-gems.sh
 
       You can also set the DEFAULT_GEMFILE variable if you wish to store
-      your default-gems in a location other than
-      ~/.post-install.d/$RUBY/default-gems (where $RUBY is the kind of
-      Ruby you're installing, like "jruby", "ruby" or "rubinius").
+      your default-gems in a location other than ~/.default-$RUBY-gems
+      (where $RUBY is the kind of Ruby you're installing: "jruby", "ruby", ...)
     )
   end
 end
