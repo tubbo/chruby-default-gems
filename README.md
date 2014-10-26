@@ -16,7 +16,7 @@ Make sure you have the latest chruby and ruby-install, then run:
 
 Next, add the following to your shell configuration:
 
-    source ~/.chruby-default-gems/default-gems.sh
+    source ~/.chruby-default-gems/chruby-default-gems.sh
 
 If you're on OS X, you can just run:
 
@@ -40,7 +40,7 @@ this is probably what's happeneing.
 
 ## Updating Gems
 
-If you change your default gemfile, run `update-default-gems` to
+If you change your default gemfile, run `chruby-default-gems` to
 reinstall each listed gem into the current Ruby.
 It does not remove gems.
 

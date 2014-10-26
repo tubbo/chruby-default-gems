@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-source "${0%/*}/../default-gems.sh"
-
-# . /usr/local/Cellar/chruby-default-gems/0.0.1/default_gems.sh
-
-RUBY=ruby STATUS=0 install_default_gems

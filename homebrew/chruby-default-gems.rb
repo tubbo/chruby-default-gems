@@ -9,8 +9,8 @@ class ChrubyDefaultGems < Formula
   head 'https://github.com/bronson/chruby-default-gems.git'
 
   def install
-    share.install "default-gems.sh"
-    bin.install 'update-default-gems'
+    share.install "chruby-default-gems.sh"
+    bin.install 'chruby-default-gems'
   end
 
   def caveats
@@ -19,7 +19,7 @@ class ChrubyDefaultGems < Formula
 
       Copy the following line into your .bash_profile or .zshenv:
 
-        source #{opt_share}/default-gems.sh
+        source /usr/local/share/chruby-default-gems.sh
 
       You can also set the DEFAULT_GEMFILE variable if you wish to store
       your default-gems in a location other than ~/.default-$RUBY-gems
@@ -28,6 +28,6 @@ class ChrubyDefaultGems < Formula
   end
 
   # test do
-  #   system "#{bin}/update-default-gems --version | grep #{version}"
+  #   system "#{bin}/chruby-default-gems --version | grep #{version}"
   # end
 end
