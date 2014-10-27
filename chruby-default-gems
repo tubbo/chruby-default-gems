@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source "${0%/*}/../share/chruby-default-gems.sh"
+
+RUBY=ruby STATUS=0 install_default_gems
