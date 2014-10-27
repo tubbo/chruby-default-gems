@@ -1,48 +1,54 @@
 # chruby-default-gems
 
-A [chruby][postmodern/chruby] plugin that installs a set of gems into every
-`ruby-install` completion. Requires
-[ruby-install][postmodern/ruby-install]. It is based off (and actually a
-fork of) [rbenv-default-gems][sstephenson/rbenv-default-gems].
-
-Shoutouts to [Sam Stephenson][sstephenson], [Postmodern][postmodern] and the
-[rbenv][sstephenson/rbenv] project for their amazing work!
+This [chruby][postmodern/chruby] plugin ensures the Rubies you
+build (with [ruby-install][postmodern/ruby-install])
+come with the gems you want.
+It is forked from [rbenv-default-gems][sstephenson/rbenv-default-gems].
 
 ## Installation
 
-Make sure you have the latest chruby and ruby-install, then run:
-
-    git clone https://github.com/bronson/chruby-default-gems ~/.chruby-default-gems
-
-Next, add the following to your shell configuration:
-
-    source ~/.chruby-default-gems/chruby-default-gems.sh
-
-If you're on OS X, you can just run:
+If you're on OS X and use Homebrew, this is easiest
+(make sure to follow directions):
 
     brew install https://raw.github.com/bronson/chruby-default-gems/master/homebrew/chruby-default-gems.rb --HEAD
 
-This will install the script and show you instructions for how to apply
-it to your shell.
+Otherwise, run:
+
+    git clone https://github.com/bronson/chruby-default-gems ~/.chruby-default-gems
+
+And add the following to your shell configuration:
+
+    source ~/.chruby-default-gems/chruby-default-gems.sh
 
 ## Usage
 
 chruby-default-gems automatically installs the gems listed in the
-`$DEFAULT_GEMFILE` every time you install a new Ruby.
-The default gemfile is `~/.default-$RUBY-gems` (where `$RUBY` is
+`$DEFAULT_GEMFILE` file every time you install a new Ruby.
+By default, this file is at `~/.default-$RUBY-gems` (where `$RUBY` is
 replaced by `ruby`, `jruby`, `rubinius`)
 
 You can change `$DEFAULT_GEMFILE` in your .bashrc.  Remember to surround
 chruby variables (like `$RUBY`) with single quotes,
-otherwise they will be expanded when your .bashrc is read.  If you're
+otherwise they will be expanded when your .bashrc is read
+(before the `$RUBY` variable can be set).  If you're
 getting errors along the lines of "Could not find ~/.default--gems",
 this is probably what's happeneing.
 
-## Updating Gems
+```bash
+# single quotes ensure $RUBY won't be expanded until install time
+DEFAULT_GEMFILE='.defaults/$RUBY/Gemfile'
+```
 
-If you change your default gemfile, run `chruby-default-gems` to
-reinstall each listed gem into the current Ruby.
+If DEFAULT_GEMFILE doesn't exist, chruby-default-gems exits without doing
+anything.
+
+
+## Updating Defaults
+
+Whenever you change your defaults, you can run the `chruby-default-gems`
+command to reinstall your default gems into the current Ruby.
 It does not remove gems.
+
 
 ## Default Gemfile
 
@@ -50,9 +56,11 @@ Specify gems in `$DEFAULT_GEMFILE` by name, one per line. You may
 optionally specify a version string after the name, or `--pre` to
 install a prerelease version. For example:
 
-    bundler
-    bcat ~>0.6
-    rails --pre
+```bash
+bundler
+bcat ~>0.6
+rails --pre
+```
 
 Blank lines and lines beginning with a `#` are ignored.
 
